@@ -7,9 +7,10 @@ namespace ProductService.Domain.Interfaces
 {
     public interface IProductRepository
     {
-        Task<Product> GetByIdAsync();
+        Task<Product?> GetByIdAsync(Guid id);
         Task<List<Product>> GetAllAsync();
         Task AddAsync(Product product);
         Task UpdateAsync(Product product);
+        Task SaveChangeAsync();
     }
 }

@@ -14,6 +14,19 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+//builder.Services.AddDbContext<ProductDbContext>(options =>
+//{
+//    options.UseNpgsql(
+//        builder.Configuration.GetConnectionString("DefaultConnection"),
+//        npgsqlOptions =>
+//        {
+//            npgsqlOptions.EnableRetryOnFailure(
+//                maxRetryCount: 5,
+//                maxRetryDelay: TimeSpan.FromSeconds(10),
+//                errorCodesToAdd: null);
+//        });
+//});
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
