@@ -1,3 +1,4 @@
+using ProductService.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,18 +15,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-//builder.Services.AddDbContext<ProductDbContext>(options =>
-//{
-//    options.UseNpgsql(
-//        builder.Configuration.GetConnectionString("DefaultConnection"),
-//        npgsqlOptions =>
-//        {
-//            npgsqlOptions.EnableRetryOnFailure(
-//                maxRetryCount: 5,
-//                maxRetryDelay: TimeSpan.FromSeconds(10),
-//                errorCodesToAdd: null);
-//        });
-//});
+builder.Services.AddInfrastructure(builder.Configuration);
 
 app.UseHttpsRedirection();
 
